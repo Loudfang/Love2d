@@ -17,12 +17,20 @@ canShootTimer = canShootTimerMax
 bulletImg = nil
 bullets = {}
 
+createEnemyTimerMax = 0.4
+createEnemyTimer = createEnemyTimerMax
+
+enemyImg = nil
+
+enemies= {}
+
 
 
 function love.load(arg)
 
     player.img = love.graphics.newImage('assets/plane.png')
     bulletImg = love.graphics.newImage('assets/bullet.png')
+    enemyImg = love.graphics.newImage('assets/enemy.png')
 
 end
 
@@ -48,9 +56,6 @@ function love.update(dt)
         table.remove(bullets, i)
         end
     end
-
-
-
 
     if love.keyboard.isDown('escape') then
         love.event.push('quit')
