@@ -23,7 +23,7 @@ end
 
 debug = false
 
-player = {x = 200, y = 710, speed = 300, img = nil }
+player = {x = 200, y = 400, speed = 300, img = nil }
 
 canShoot = true
 canShootTimerMax = 0.2
@@ -42,10 +42,13 @@ enemies= {}
 isAlive = true
 score = 0
 
+scene = nil
+
 
 
 function love.load(arg)
 
+    scene = love.graphics.newImage('assets/bkground.png')
     player.img = love.graphics.newImage('assets/plane.png')
     bulletImg = love.graphics.newImage('assets/bullet.png')
     enemyImg = love.graphics.newImage('assets/enemy.png')
@@ -149,7 +152,7 @@ function love.update(dt)
 
 
         player.x = 50
-        player.y = 710
+        player.y = 400
 
         score = 0
         isAlive = true
@@ -161,6 +164,10 @@ function love.update(dt)
 end
 
 function love.draw(dt)
+
+    love.graphics.draw(scene, love.graphics:getWidth() / 2 - scene:getWidth()/2,
+        love.graphics:getHeight() / 2 - scene:getHeight() / 2)
+
 
     for i, bullet in ipairs(bullets) do
         love.graphics.draw(bullet.img, bullet.x, bullet.y)
@@ -178,8 +185,8 @@ else
 
     love.graphics.print('Press R to restart', love.graphics:getWidth()/2-50, love.graphics:getHeight()/2-10)
 end
-    love.graphics.print('Your score is', love.graphics:getWidth()/2-210, love.graphics:getHeight()/2-320)
-    love.graphics.print(score, love.graphics:getWidth()/2-200, love.graphics:getHeight()/2-300)
+    love.graphics.print('Your score is', love.graphics:getWidth()/2-300, love.graphics:getHeight()/2-150)
+    love.graphics.print(score, love.graphics:getWidth()/2-300, love.graphics:getHeight()/2-120)
 
 
 end

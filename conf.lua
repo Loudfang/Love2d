@@ -9,8 +9,8 @@
 function love.conf(t)
     t.title = "Scrolling Shooter"
     t.version = "0.10.1"
-    t.window.width = 480
-    t.window.height = 800
+    t.window.width = 640
+    t.window.height = 480
 
     -- For Windows debugging
     t.console = false
